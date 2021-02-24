@@ -47,7 +47,7 @@ app.get('/equipes', (req,res) => {
     app.get('/equipes/:id', async (req,res) => {
           const id = parseInt(req.params.id)
           try {
-              const docs = await db.collection('equipe').find({id}).toArray()
+              const docs = await db.collection('equipe').findOne({id})
               res.status(200).json(docs)
           } catch (err) {
               console.log(err)
